@@ -20,6 +20,10 @@ setting of font sizes (e.g., in \code{\link[=cell_text]{cell_text()}}) and thick
 (e.g., in \code{\link[=cell_borders]{cell_borders()}}). Setting a length in pixels with \code{px()} allows
 for an absolute definition of size as opposed to the analogous helper
 function \code{\link[=pct]{pct()}}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

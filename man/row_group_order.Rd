@@ -27,6 +27,10 @@ is provided, the row groups will adhere to this revised ordering. It isn't
 necessary to provide all row group names in \code{groups}, rather, what is
 provided will assume the specified ordering at the top of the table and the
 remaining row groups will follow in their original ordering.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

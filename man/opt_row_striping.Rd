@@ -20,6 +20,10 @@ By default, a \strong{gt} table does not have row striping enabled. However, thi
 function allows us to easily enable or disable striped rows in the table
 body. This function serves as a convenient shortcut for
 \verb{<gt_tbl> \%>\% tab_options(row.striping.include_table_body = TRUE|FALSE)}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

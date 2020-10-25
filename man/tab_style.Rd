@@ -47,6 +47,10 @@ bold text (the degree of choice is greater with variable fonts)
 \code{indent})
 \item the cell borders (\code{\link[=cell_borders]{cell_borders()}})
 }
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

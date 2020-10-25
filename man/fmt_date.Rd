@@ -55,6 +55,10 @@ dates):
 }
 We can use the \code{\link[=info_date_style]{info_date_style()}} function for a useful reference on all of
 the possible inputs to \code{date_style}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

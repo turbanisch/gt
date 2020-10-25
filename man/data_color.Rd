@@ -54,6 +54,10 @@ control over how cells are colored since we provide an explicit color
 function and thus other requirements such as bin counts, cut points, or a
 numeric domain. Finally, we can choose whether to apply the cell-specific
 colors to either the cell background or the cell text.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The \verb{col_*()} color mapping functions from the scales package can be used in

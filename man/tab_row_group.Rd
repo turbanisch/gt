@@ -34,6 +34,10 @@ An object of class \code{gt_tbl}.
 Create a row group with a collection of rows. This requires specification of
 the rows to be included, either by supplying row labels, row indices, or
 through use of a select helper function like \code{starts_with()}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

@@ -30,6 +30,10 @@ last y rows of data (which can be set by the \code{top_n} and \code{bottom_n}
 arguments). It's not advised to use additional \strong{gt} functions to further
 modify the output of \code{gt_preview()}. Furthermore, you cannot pass a \strong{gt}
 object to \code{gt_preview()}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Any grouped data or magic columns such as \code{rowname} and \code{groupname} will be

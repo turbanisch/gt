@@ -43,6 +43,10 @@ this is useful when don't want to modify the input data other than to
 decorate it within a pattern. Also, this function is useful when used as the
 \code{formatter} function in the \code{\link[=summary_rows]{summary_rows()}} function, where the output may
 be text or useful as is.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

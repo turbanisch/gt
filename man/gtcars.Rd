@@ -36,6 +36,10 @@ of a certain make, model, year, and trim. Basic specifications such as
 horsepower, torque, EPA MPG ratings, type of drivetrain, and transmission
 characteristics are provided. The country of origin for the car manufacturer
 is also given.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 All of the \code{gtcars} have something else in common (aside from the high asking

@@ -13,5 +13,9 @@
 }
 \description{
 This facilitates conversion of the \code{gt_tbl} object to a data frame.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \keyword{internal}

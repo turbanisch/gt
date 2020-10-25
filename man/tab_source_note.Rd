@@ -22,6 +22,10 @@ useful for citing the data included in the table. Several can be added to the
 footer, simply use multiple calls of \code{tab_source_note()} and they will be
 inserted in the order provided. We can use Markdown formatting for the note,
 or, if the table is intended for HTML output, we can include HTML formatting.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

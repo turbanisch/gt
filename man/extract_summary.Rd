@@ -17,6 +17,10 @@ Get a list of summary row data frames from a \code{gt_tbl} object where summary
 rows were added via the \code{\link[=summary_rows]{summary_rows()}} function. The output data frames
 contain the \code{groupname} and \code{rowname} columns, whereby \code{rowname} contains
 descriptive stub labels for the summary rows.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

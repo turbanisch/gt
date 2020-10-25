@@ -23,6 +23,10 @@ subtitle. A table header is an optional table part that is positioned above
 the column labels. We have the flexibility to use Markdown formatting for the
 header's title and subtitle. Furthermore, if the table is intended for HTML
 output, we can use HTML in either of the title or subtitle.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

@@ -19,6 +19,10 @@ footnotes, source notes, the table title, etc.) and expect it to render to
 HTML as Markdown does. There is the \code{\link[=html]{html()}} helper that allows you to ferry
 in HTML but this function \code{md()}... it's almost like a two-for-one deal (you
 get to use Markdown plus any HTML fragments \emph{at the same time}).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

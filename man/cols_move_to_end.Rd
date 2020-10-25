@@ -22,6 +22,10 @@ only need to specify which \code{columns} are to be moved. While this can be don
 upstream of \strong{gt}, this function makes to process much easier and it's less
 error prone. The ordering of the \code{columns} that are moved to the end is
 preserved (same with the ordering of all other columns in the table).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The columns supplied in \code{columns} must all exist in the table. If you need to

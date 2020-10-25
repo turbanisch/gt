@@ -20,6 +20,10 @@ want to express them as raw HTML. In fact, with HTML, anything goes so it can
 be much more than just text. The \code{html()} function will guard the input HTML
 against escaping, so, your HTML tags will come through as HTML when
 rendered... to HTML.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

@@ -17,6 +17,10 @@ useful when specifying \code{font} values in the \code{\link[=cell_text]{cell_te
 used in the \code{\link[=tab_style]{tab_style()}} function). If using \code{\link[=opt_table_font]{opt_table_font()}} (which also
 has a \code{font} argument) we probably don't need to specify this vector of fonts
 since it is handled by its \code{add} option (which is \code{TRUE} by default).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

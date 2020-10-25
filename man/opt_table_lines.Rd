@@ -22,6 +22,10 @@ ways: (1) all possible table lines drawn (\code{"all"}), (2) no table lines at a
 is great if you want to start off with lots of lines and subtract just a few
 of them with \code{\link[=tab_options]{tab_options()}} or \code{\link[=tab_style]{tab_style()}}. Or, use it to start with a
 completely lineless table, adding individual lines as needed.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

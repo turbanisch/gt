@@ -30,6 +30,10 @@ The \code{opt_css()} function makes it possible to add CSS to a \strong{gt} tabl
 CSS will be added after the compiled CSS that \strong{gt} generates automatically
 when the object is transformed to an HTML output table. You can supply \code{css}
 as a vector of lines or as a single string.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

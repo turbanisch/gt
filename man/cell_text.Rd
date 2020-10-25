@@ -71,6 +71,10 @@ This helper function is to be used with the \code{\link[=tab_style]{tab_style()}
 itself allows for the setting of custom styles to one or more cells. We can
 also define several styles within a single call of \code{cell_text()} and
 \code{\link[=tab_style]{tab_style()}} will reliably apply those styles to the targeted element.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

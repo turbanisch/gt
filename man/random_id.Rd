@@ -15,6 +15,10 @@ A character vector containing a single, random ID.
 \description{
 This helper function can be used to create a random, character-based ID
 value argument of variable length (the default is 10 letters).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

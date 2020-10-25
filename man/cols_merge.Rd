@@ -41,6 +41,10 @@ The first column in the \code{columns} series operates as the target column (i.e
 will undergo mutation) whereas all following \code{columns} will be untouched.
 There is the option to hide the non-target columns (i.e., second and
 subsequent columns given in \code{columns}).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 There are two other column-merging functions that offer specialized behavior

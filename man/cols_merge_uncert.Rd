@@ -36,6 +36,10 @@ The \code{cols_merge_uncert()} function is a specialized variant of the
 single column. What results is a column with values and associated
 uncertainties (e.g., \verb{12.0 ± 0.1}), and, the column specified in \code{col_uncert}
 is dropped from the output table.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 This function could be somewhat replicated using \code{\link[=cols_merge]{cols_merge()}}, however,

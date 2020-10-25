@@ -35,6 +35,10 @@ footnote text (that starts with the corresponding footnote mark) that is
 placed in the table's footer area. Each call of \code{tab_footnote()} will add a
 different note, and one or more cells can be targeted via the location helper
 functions (e.g., \code{\link[=cells_body]{cells_body()}}, \code{\link[=cells_column_labels]{cells_column_labels()}}, etc.).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The formatting of the footnotes can be controlled through the use of various

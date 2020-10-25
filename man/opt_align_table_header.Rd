@@ -21,6 +21,10 @@ for both the title and the subtitle elements. This function allows us to
 easily set the horizontal alignment of the title and subtitle to the left
 or right by using the \code{"align"} argument. This function serves as a
 convenient shortcut for \verb{<gt_tbl> \%>\% tab_options(heading.align = <align>)}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

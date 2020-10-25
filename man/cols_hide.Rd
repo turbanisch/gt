@@ -23,6 +23,10 @@ to omit columns from the input table data before introduction to the \code{\link
 function, there can be cases where the data in certain columns is useful (as
 a column reference during formatting of other columns) but the final display
 of those columns is not necessary.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The hiding of columns is internally a rendering directive, so, all columns

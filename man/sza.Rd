@@ -30,6 +30,10 @@ This dataset contains solar zenith angles (in degrees, with the range of
 values is calculated on the first of every month for 4 different northern
 hemisphere latitudes. For determination of afternoon values, the presented
 tabulated values are symmetric about noon.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The solar zenith angle (SZA) is one measure that helps to describe the sun's

@@ -20,6 +20,10 @@ recommendations. These fonts look great in the different parts of a \strong{gt}
 table. Why? For the most part they are suitable for body text, having large
 counters, large x-height, reasonably low contrast, and open apertures. These
 font features all make for high legibility at smaller sizes.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

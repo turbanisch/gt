@@ -58,6 +58,10 @@ Add summary rows to one or more row groups by using the table data and any
 suitable aggregation functions. You choose how to format the values in the
 resulting summary cells by use of a \code{formatter} function (e.g, \code{fmt_number},
 etc.) and any relevant options.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Should we need to obtain the summary data for external purposes, the

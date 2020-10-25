@@ -23,6 +23,10 @@ helper function can be used for the setting of font sizes (e.g., in
 \code{\link[=cell_text]{cell_text()}}) and altering the thicknesses of lines (e.g., in
 \code{\link[=cell_borders]{cell_borders()}}). Should a more exact definition of size be required, the
 analogous helper function \code{\link[=pct]{pct()}} will be more useful.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

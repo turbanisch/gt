@@ -27,6 +27,10 @@ one or more specified columns (in the \code{columns} argument) and places them t
 the right of a different column (the \code{after} argument). The ordering of the
 \code{columns} to be moved is preserved, as is the ordering of all other columns
 in the table.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The columns supplied in \code{columns} must all exist in the table and none of

@@ -32,6 +32,10 @@ then include a call to \code{ggplot_image()} within the required user-defined
 function (for the \code{fn} argument). If we want to include a plot in other
 places (e.g., in the header, within footnote text, etc.) we need to use
 \code{ggplot_image()} within the \code{\link[=html]{html()}} helper function.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 By itself, the function creates an HTML image tag with an image URI embedded

@@ -69,6 +69,10 @@ portion (all using the input time of \code{14:35:00} in the example output times
 We can use the \code{\link[=info_date_style]{info_date_style()}} and \code{\link[=info_time_style]{info_time_style()}} functions as
 useful references for all of the possible inputs to \code{date_style} and
 \code{time_style}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

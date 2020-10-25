@@ -36,6 +36,10 @@ or, as percentages (where the \code{\link[=pct]{pct()}} helper function is usefu
 assignments are supplied in \code{...} through two-sided formulas, where the
 left-hand side defines the target columns and the right-hand side is a single
 dimension.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Column widths can be set as absolute or relative values (with px and

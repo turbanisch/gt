@@ -15,6 +15,10 @@ object contains the LaTeX code and attributes that serve as LaTeX
 dependencies (i.e., the LaTeX packages required for the table). Using
 \code{as.character()} on the created object will result in a single-element vector
 containing the LaTeX code.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

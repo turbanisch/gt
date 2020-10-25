@@ -21,6 +21,10 @@ The \code{cells_summary()} function is used to target the cells in a group summa
 and it is useful when applying a footnote with \code{\link[=tab_footnote]{tab_footnote()}} or adding a
 custom style with \code{\link[=tab_style]{tab_style()}}. The function is expressly used in each of
 those functions' \code{locations} argument.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 When using any of the location helper functions with an appropriate function

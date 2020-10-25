@@ -13,6 +13,10 @@ as_rtf(data)
 Get the RTF content from a \code{gt_tbl} object as as a single-element character
 vector. This object can be used with \code{writeLines()} to generate a valid .rtf
 file that can be opened by RTF readers.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

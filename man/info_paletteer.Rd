@@ -24,6 +24,10 @@ package, which makes a wide range of palettes from various R packages readily
 available, and (2) calling the \code{info_paletteer()} function to give us an
 information table that serves as a quick reference for all of the discrete
 color palettes available in \strong{paletteer}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The palettes displayed are organized by package and by palette name. These

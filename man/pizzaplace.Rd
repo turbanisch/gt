@@ -39,6 +39,10 @@ ingredient: 'Try the Southwest Chicken Pizza! You'll love it!'), \code{supreme}
 salami from my personal salumist!'), and, \code{veggie} (pizzas without any meats
 whatsoever: 'My Five Cheese pizza has so many cheeses, I can only offer it in
 Large Size!').
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Each pizza in the dataset is identified by a short \code{name}. The following

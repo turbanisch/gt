@@ -17,6 +17,10 @@ LaTeX packages that are required for rendering a \strong{gt} table. The
 \code{gt_latex_dependencies()} function provides an object that can be
 used to provide the LaTeX in an Rnw file, allowing \strong{gt} tables to work
 and not yield errors due to missing packages.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Here is an example Rnw document that shows how the

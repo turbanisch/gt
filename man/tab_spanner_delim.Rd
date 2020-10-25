@@ -30,6 +30,10 @@ components (LHS) are promoted to being spanner column labels, and the
 secondary components (RHS) will become the column labels. Please note that
 reference to individual columns must continue to be the column names from the
 input table data (which are unique by necessity).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 If we look to the column names in the \code{iris} dataset as an example of how

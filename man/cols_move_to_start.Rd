@@ -23,6 +23,10 @@ we only need to specify which \code{columns}. It's possible to do this upstream 
 possibility for error. The ordering of the \code{columns} that are moved to the
 start is preserved (same with the ordering of all other columns in the
 table).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 The columns supplied in \code{columns} must all exist in the table. If you need to

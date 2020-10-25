@@ -24,6 +24,10 @@ function.}
 The \code{gtsave()} function makes it easy to save a \strong{gt} table to a file. The
 function guesses the file type by the extension provided in the output
 filename, producing either an HTML, PDF, PNG, LaTeX, or RTF file.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Output filenames with either the \code{.html} or \code{.htm} extensions will produce an

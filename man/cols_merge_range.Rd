@@ -33,6 +33,10 @@ a range of values (\code{col_begin} and \code{col_end}) and merges them into a s
 column. What results is a column containing both values separated by a long
 dash (e.g., \verb{12.0 — 20.0}). The column specified in \code{col_end} is dropped from
 the output table.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 This function could be somewhat replicated using \code{\link[=cols_merge]{cols_merge()}}, however,

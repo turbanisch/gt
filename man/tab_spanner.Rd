@@ -24,6 +24,10 @@ An object of class \code{gt_tbl}.
 Set a spanner column label by mapping it to columns already in the table.
 This label is placed above one or more column labels, spanning the width of
 those columns and column labels.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

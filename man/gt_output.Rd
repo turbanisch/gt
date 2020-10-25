@@ -18,6 +18,10 @@ the position and context wherein this call is made determines the where the
 ID given during the \code{\link[=render_gt]{render_gt()}} call is needed as the \code{outputId} in
 \code{gt_output()} (e.g., \strong{server}: \verb{output$<id> <- render_gt(...)}; \strong{ui}:
 \verb{gt_output(outputId = "<id>"}).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 We need to ensure that we have the \strong{shiny} package installed first. This

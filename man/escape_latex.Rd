@@ -17,6 +17,10 @@ A character vector.
 Text may contain several characters with special meanings in LaTeX. This
 function will transform a character vector so that it is safe to use within
 LaTeX tables.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

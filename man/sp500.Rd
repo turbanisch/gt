@@ -21,6 +21,10 @@ sp500
 This dataset provides daily price indicators for the S&P 500 index from the
 beginning of 1950 to the end of 2015. The index includes 500 leading
 companies and captures about 80\\% coverage of available market capitalization.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

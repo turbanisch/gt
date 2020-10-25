@@ -18,6 +18,10 @@ Two test images are available within the \strong{gt} package. Both contain the
 same imagery (sized at 200px by 200px) but one is a PNG file while the other
 is an SVG file. This function is most useful when paired with \code{\link[=local_image]{local_image()}}
 since we test various sizes of the test image within that function.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

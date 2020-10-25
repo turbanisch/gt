@@ -26,6 +26,10 @@ function, we can specify which data cells to target and then include a
 argument). If we want to include an image in other places (e.g., in the
 header, within footnote text, etc.) we need to use \code{web_image()} within the
 \code{\link[=html]{html()}} helper function.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 By itself, the function creates an HTML image tag, so, the call

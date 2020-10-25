@@ -23,6 +23,10 @@ The \code{cell_fill()} helper function is to be used with the \code{\link[=tab_s
 function, which itself allows for the setting of custom styles to one or more
 cells. Specifically, the call to \code{cell_fill()} should be bound to the
 \code{styles} argument of \code{\link[=tab_style]{tab_style()}}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

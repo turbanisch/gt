@@ -18,6 +18,10 @@ be specified. There are two instances where this helper can be used: the
 \code{name} argument in \code{\link[=opt_table_font]{opt_table_font()}} (for setting a table font) and in that
 of \code{\link[=cell_text]{cell_text()}} (used with \code{\link[=tab_style]{tab_style()}}). To get a helpful listing of fonts
 that work well in tables, use the \code{\link[=info_google_fonts]{info_google_fonts()}} function.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

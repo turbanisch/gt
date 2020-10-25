@@ -316,6 +316,10 @@ An object of class \code{gt_tbl}.
 \description{
 Modify the options available in a table. These options are named by the
 components, the subcomponents, and the element that can adjusted.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

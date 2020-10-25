@@ -23,6 +23,10 @@ around the entire table. It'll write over any existing outside lines so long
 as the \code{width} is larger that of the existing lines. The default value of
 \code{style} (\code{"solid"}) will draw a solid outline, whereas a value of \code{"none"}
 will remove any present outline.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

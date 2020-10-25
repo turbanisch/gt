@@ -42,6 +42,10 @@ functions can be provided for the \code{html}, \code{latex}, and \code{default} 
 This can be in the form of \code{fns = list(html = function(x) ..., latex = function(x) ..., default = function(x) ...)}. In this multiple-function case,
 we recommended including the \code{default} function as a fallback if all contexts
 aren't provided.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 As with all of the \verb{fmt_*()} functions, targeting of values is done through

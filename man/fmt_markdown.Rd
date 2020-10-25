@@ -28,6 +28,10 @@ An object of class \code{gt_tbl}.
 \description{
 Any Markdown-formatted text in the incoming cells will be transformed to the
 appropriate output type during render when using \code{fmt_markdown()}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

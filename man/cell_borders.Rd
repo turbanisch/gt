@@ -31,6 +31,10 @@ cells. Specifically, the call to \code{cell_borders()} should be bound to the
 define which borders should be modified (e.g., \code{"left"}, \code{"right"}, etc.).
 With that selection, the \code{color}, \code{style}, and \code{weight} of the selected
 borders can then be modified.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

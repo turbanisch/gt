@@ -158,6 +158,10 @@ currency formatting specific to the chosen locale
 }
 We can use the \code{\link[=info_currencies]{info_currencies()}} function for a useful reference on all of
 the possible inputs to the \code{currency} argument.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

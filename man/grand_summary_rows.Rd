@@ -51,6 +51,10 @@ functions to the table data. The summary rows incorporate all of the
 available data, regardless of whether some of the data are part of row
 groups. You choose how to format the values in the resulting summary cells by
 use of a \code{formatter} function (e.g, \code{fmt_number}) and any relevant options.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Should we need to obtain the summary data for external purposes, the

@@ -45,6 +45,10 @@ available for simpler formatting of ISO times (all using the input time of
 }
 We can use the \code{\link[=info_time_style]{info_time_style()}} function for a useful reference on all of
 the possible inputs to \code{time_style}.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

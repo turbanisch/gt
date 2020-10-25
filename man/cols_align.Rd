@@ -28,6 +28,10 @@ all of their data cells) can be modified. We have the option to align text to
 the \code{left}, the \code{center}, and the \code{right}. In a less explicit manner, we can
 allow \strong{gt} to automatically choose the alignment of each column based on
 the data type (with the \code{auto} option).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 When you create a \strong{gt} table object using \code{\link[=gt]{gt()}}, automatic alignment of

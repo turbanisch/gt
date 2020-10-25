@@ -47,6 +47,10 @@ The \code{width} and \code{height} arguments allow for sizing the container, and
 \code{align} argument allows us to align the table within the container (some
 other fine-grained options for positioning are available in the
 \code{\link[=tab_options]{tab_options()}} function).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 We need to ensure that we have the \strong{shiny} package installed first. This

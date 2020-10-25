@@ -27,6 +27,10 @@ citizenship. Country identifiers include the English-language country names,
 and the 2- and 3-letter ISO 3166-1 country codes. Each row contains a
 \code{population} value for a given \code{year} (from 1960 to 2017). Any \code{NA} values
 for \code{populations} indicate the non-existence of the country during that year.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

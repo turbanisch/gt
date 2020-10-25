@@ -77,6 +77,10 @@ values
 \item locale-based formatting: providing a locale ID will result in
 formatting specific to the chosen locale
 }
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

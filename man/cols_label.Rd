@@ -28,6 +28,10 @@ column labels in a \strong{gt} output table. The \code{cols_label()} function
 provides the flexibility to relabel one or more columns and we even have the
 option to use the \code{\link[=md]{md()}} or \code{\link[=html]{html()}} helper functions for rendering column
 labels from Markdown or using HTML.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 It's important to note that while columns can be freely relabeled, we

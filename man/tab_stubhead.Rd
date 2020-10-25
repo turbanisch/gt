@@ -23,6 +23,10 @@ a stub does not exist, then there is no stubhead (so no change will be made
 when using this function in that case). We have the flexibility to use
 Markdown formatting for the stubhead label. Furthermore, if the table is
 intended for HTML output, we can use HTML for the stubhead label.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

@@ -21,6 +21,10 @@ styles (that were previously contained in CSS rule sets external to the
 \verb{<table> element}) are included as \code{style} attributes in the HTML table's
 tags. This option is preferable when using the output HTML table in an
 emailing context.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 

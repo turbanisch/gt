@@ -22,6 +22,10 @@ An object of class \code{gt_tbl}.
 }
 \description{
 Perform targeted text transformation with a function
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Figures}{
 

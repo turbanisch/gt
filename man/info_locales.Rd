@@ -22,6 +22,10 @@ identifiers are provided (base locale ID, common display name) along with the
 each locale's group and decimal separator marks. A formatted numeric example
 is provided (based on the value of \code{11027}) to demonstrate the default
 formatting of each locale.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 There are 712 locales, which means that a very long display table is provided

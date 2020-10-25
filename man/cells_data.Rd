@@ -13,4 +13,8 @@ cells_data(columns = TRUE, rows = TRUE)
 }
 \description{
 Location helper for targeting data cells in the table body (deprecated)
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }

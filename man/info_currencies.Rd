@@ -28,6 +28,10 @@ provided (name, 3-letter currency code, and 3-digit currency code) along with
 the each currency's exponent value (number of digits of the currency
 subunits). A formatted example is provided (based on the value of \code{49.95}) to
 demonstrate the default formatting of each currency.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 There are 172 currencies, which can lead to a verbose display table. To make

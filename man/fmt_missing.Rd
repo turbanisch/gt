@@ -33,6 +33,10 @@ Wherever there is missing data (i.e., \code{NA} values) a customizable mark may
 present better than the standard \code{NA} text that would otherwise appear. The
 \code{fmt_missing()} function allows for this replacement through its
 \code{missing_text} argument (where an em dash serves as the default).
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \details{
 Targeting of values is done through \code{columns} and additionally by \code{rows} (if

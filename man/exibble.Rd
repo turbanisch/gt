@@ -35,6 +35,10 @@ character-based dates/times in the familiar ISO 8601 format. The \code{row} and
 \code{group} columns provide for unique rownames and two groups (\code{grp_a} and
 \code{grp_b}) for experimenting with the \code{\link[=gt]{gt()}} function's \code{rowname_col} and
 \code{groupname_col} arguments.
+
+\if{html}{\out{<link rel="stylesheet" type="text/css" href="../doc/assets/extra.css">}}
+
+\if{html}{\out{<script src="../doc/assets/rd.js"></script>}}
 }
 \section{Function ID}{
 
