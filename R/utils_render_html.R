@@ -9,12 +9,32 @@ footnote_mark_to_html <- function(mark) {
 
 styles_to_html <- function(styles) {
 
-  style_list <-
-    lapply(styles, function(x) cell_style_to_html(x)) %>%
-    unname() %>%
-    unlist(recursive = FALSE)
+  vapply(
+    styles,
+    FUN.VALUE = character(1), USE.NAMES = FALSE,
+    FUN = function(x) {
 
-  paste0(names(style_list), ": ", style_list, ";", collapse = " ")
+      if (any(is.null(names(x)))) {
+
+        style <- gsub(":", ": ", x, fixed = TRUE)
+
+      } else if (all(names(x) != "")) {
+
+        x <- cell_style_to_html(x)
+
+        style <-
+          paste0(names(x), ": ", x, ";", collapse = " ") %>%
+          tidy_gsub(";;", ";")
+
+      } else {
+        style <- as.character(x)
+      }
+
+      style
+    }
+  ) %>%
+    paste(collapse = " ") %>%
+    tidy_gsub("\n", " ")
 }
 
 cell_style_to_html <- function(style) {
@@ -67,37 +87,52 @@ get_table_defs <- function(data) {
 
   boxh <- dt_boxhead_get(data = data)
 
-  if (boxh$column_width %>% unlist() %>% length() > 0) {
+  # Get the `table-layout` value, which is set in `_options`
+  table_style <-
+    paste0("table-layout: ", dt_options_get_value(data, option = "table_layout"), ";")
 
-    widths <-
-      boxh %>%
-      dplyr::filter(type == "default") %>%
-      .$column_width %>%
-      unlist()
-
-    # Assumption is that all width values are `px` values
-    total_width <-
-      widths %>%
-      tidy_gsub("px", "") %>%
-      as.numeric() %>%
-      sum(na.rm = TRUE) %>%
-      as.character() %>%
-      paste_right("px")
-
-    table_style <-
-      paste("table-layout: fixed", paste0("width: ", total_width), sep = "; ")
-
-    table_colgroups <-
-      htmltools::tags$colgroup(
-        lapply(widths, function(width) {
-          htmltools::tags$col(style = paste0("width: ", width))
-        })
-      )
-
-  } else {
-    table_style <- NULL
-    table_colgroups <- NULL
+  # In the case that column widths are not set for any columns,
+  # there should not be a `<colgroup>` tag requirement
+  if (boxh$column_width %>% unlist() %>% length() < 1) {
+    return(list(table_style = NULL, table_colgroups = NULL))
   }
+
+  # Get the table's width (which or may not have been set)
+  table_width <- dt_options_get_value(data, option = "table_width")
+
+  widths <-
+    boxh %>%
+    dplyr::filter(type %in% c("default", "stub")) %>%
+    dplyr::arrange(dplyr::desc(type)) %>% # This ensures that the `stub` is first
+    .$column_width %>%
+    unlist()
+
+  # Stop function if all length dimensions (where provided)
+  # don't conform to accepted CSS length definitions
+  validate_css_lengths(widths)
+
+  # If all of the widths are defined as px values for all columns,
+  # then ensure that the width values are strictly respected as
+  # absolute width values (even if a table width has already been set)
+  if (all(grepl("px", widths)) && table_width == "auto") {
+    table_width <- "0px"
+  }
+
+  if (all(grepl("%", widths)) && table_width == "auto") {
+    table_width <- "100%"
+  }
+
+  if (table_width != "auto") {
+    table_style <- paste(table_style, paste0("width: ", table_width), sep = "; ")
+  }
+
+  # Create the `<colgroup>` tag
+  table_colgroups <-
+    htmltools::tags$colgroup(
+      lapply(widths, function(width) {
+        htmltools::tags$col(style = htmltools::css(width = width))
+      })
+    )
 
   list(
     table_style = table_style,
@@ -114,6 +149,10 @@ get_table_defs <- function(data) {
 #' @noRd
 create_heading_component <- function(data,
                                      context = "html") {
+
+  # TODO: This should probably become `create_heading_component_h()`;
+  # The other 'part creation' functions follow this convention and this
+  # one is the last holdout (there is now a `create_heading_component_rtf()`)
 
   heading <- dt_heading_get(data = data)
 
@@ -285,26 +324,26 @@ create_heading_component <- function(data,
       paste_between(x_2 = c("\\caption*{\n", "} \\\\ \n"))
   }
 
-  if (context == "rtf") {
-
-    if (subtitle_defined) {
-
-      heading_component <-
-        rtf_title_subtitle(
-          title = paste0(remove_html(heading$title), footnote_title_marks),
-          subtitle = paste0(remove_html(heading$subtitle), footnote_subtitle_marks),
-          n_cols = n_cols
-        )
-
-    } else {
-
-      heading_component <-
-        rtf_title(
-          title = paste0(remove_html(heading$heading), footnote_title_marks),
-          n_cols = n_cols
-        )
-    }
-  }
+  # if (context == "rtf") {
+  #
+  #   if (subtitle_defined) {
+  #
+  #     heading_component <-
+  #       rtf_title_subtitle(
+  #         title = paste0(remove_html(heading$title), footnote_title_marks),
+  #         subtitle = paste0(remove_html(heading$subtitle), footnote_subtitle_marks),
+  #         n_cols = n_cols
+  #       )
+  #
+  #   } else {
+  #
+  #     heading_component <-
+  #       rtf_title(
+  #         title = paste0(remove_html(heading$heading), footnote_title_marks),
+  #         n_cols = n_cols
+  #       )
+  #   }
+  # }
 
   heading_component
 }
@@ -431,8 +470,13 @@ create_columns_component_h <- function(data) {
 
     spanners <- dt_spanners_print(data = data, include_hidden = FALSE)
 
-    headings_stack <- c()
-    first_set <- second_set <- list()
+    # A list of <th> elements that will go in the top row. This includes
+    # spanner labels and column labels for solo columns (don't have spanner
+    # labels); in the latter case, rowspan=2 will be used.
+    first_set <- list()
+    # A list of <th> elements that will go in the second row. This is all column
+    # labels that DO have spanners above them.
+    second_set <- list()
 
     # Create the cell for the stubhead label
     if (isTRUE(stub_available)) {
@@ -447,8 +491,11 @@ create_columns_component_h <- function(data) {
       first_set[[length(first_set) + 1]] <-
         htmltools::tags$th(
           class = paste(
-            c("gt_col_heading", "gt_columns_bottom_border",
-              paste0("gt_", stubhead_label_alignment)),
+            c(
+              "gt_col_heading",
+              "gt_columns_bottom_border",
+              paste0("gt_", stubhead_label_alignment)
+            ),
             collapse = " "),
           rowspan = 2,
           colspan = 1,
@@ -459,6 +506,23 @@ create_columns_component_h <- function(data) {
       headings_vars <- headings_vars[-1]
       headings_labels <- headings_labels[-1]
     }
+
+    # NOTE: rle treats NA values as distinct from each other; in other words,
+    # each NA value starts a new run of length 1.
+    spanners_rle <- rle(spanners)
+    # sig_cells contains the indices of spanners' elements where the value is
+    # either NA, or, is different than the previous value. (Because NAs are
+    # distinct, every NA element will be present sig_cells.)
+    sig_cells <- c(1, utils::head(cumsum(spanners_rle$lengths) + 1, -1))
+    # colspans matches spanners in length; each element is the number of
+    # columns that the <th> at that position should span. If 0, then skip the
+    # <th> at that position.
+    colspans <- ifelse(
+      seq_along(spanners) %in% sig_cells,
+      # Index back into the rle result, working backward through sig_cells
+      spanners_rle$lengths[match(seq_along(spanners), sig_cells)],
+      0
+    )
 
     for (i in seq(headings_vars)) {
 
@@ -478,10 +542,17 @@ create_columns_component_h <- function(data) {
             NULL
           }
 
+        first_set_alignment <-
+          dt_boxhead_get_alignment_by_var(data = data, headings_vars[i])
+
         first_set[[length(first_set) + 1]] <-
           htmltools::tags$th(
             class = paste(
-              c("gt_col_heading", "gt_center", "gt_columns_bottom_border"),
+              c(
+                "gt_col_heading",
+                "gt_columns_bottom_border",
+                paste0("gt_", first_set_alignment)
+              ),
               collapse = " "),
             rowspan = 2,
             colspan = 1,
@@ -489,37 +560,12 @@ create_columns_component_h <- function(data) {
             htmltools::HTML(headings_labels[i])
           )
 
-        headings_stack <- c(headings_stack, headings_vars[i])
-
       } else if (!is.na(spanners[i])) {
 
-        if (i > 1) {
-          if (is.na(spanners[i - 1])) {
-            same_spanner <- FALSE
-          } else if (spanners[i] == spanners[i - 1]) {
-            same_spanner <- TRUE
-          } else {
-            same_spanner <- FALSE
-          }
-        } else {
-          same_spanner <- FALSE
-        }
-
-        if (!same_spanner) {
-
+        # If colspans[i] == 0, it means that a previous cell's colspan
+        # will cover us.
+        if (colspans[i] > 0) {
           class <- "gt_column_spanner"
-          colspan <- 1
-
-          for (j in 1:length(spanners)) {
-
-            if (is.na(spanners[i + j])) {
-              break
-            } else if (duplicated(spanners)[i + j]) {
-              colspan <- colspan + 1L
-            } else {
-              break
-            }
-          }
 
           styles_spanners <-
             spanner_style_attrs %>%
@@ -535,11 +581,15 @@ create_columns_component_h <- function(data) {
           first_set[[length(first_set) + 1]] <-
             htmltools::tags$th(
               class = paste(
-                c("gt_center", "gt_columns_top_border", "gt_column_spanner_outer"),
+                c(
+                  "gt_center",
+                  "gt_columns_top_border",
+                  "gt_column_spanner_outer"
+                ),
                 collapse = " "
               ),
               rowspan = 1,
-              colspan = colspan,
+              colspan = colspans[i],
               style = spanner_style,
               htmltools::tags$span(
                 class = "gt_column_spanner",
@@ -550,7 +600,8 @@ create_columns_component_h <- function(data) {
       }
     }
 
-    remaining_headings <- headings_vars[!(headings_vars %in% headings_stack)]
+    solo_headings <- headings_vars[is.na(spanners)]
+    remaining_headings <- headings_vars[!(headings_vars %in% solo_headings)]
 
     remaining_headings_indices <- which(remaining_headings %in% headings_vars)
 
@@ -561,7 +612,7 @@ create_columns_component_h <- function(data) {
       unlist()
 
     col_alignment <-
-      col_alignment[-1][!(headings_vars %in% headings_stack)]
+      col_alignment[-1][!(headings_vars %in% solo_headings)]
 
     if (length(remaining_headings) > 0) {
 
@@ -583,17 +634,23 @@ create_columns_component_h <- function(data) {
             NULL
           }
 
+        remaining_alignment <-
+          dt_boxhead_get_alignment_by_var(data = data, remaining_headings[j])
+
         second_set[[length(second_set) + 1]] <-
           htmltools::tags$th(
             class = paste(
-              c("gt_col_heading", "gt_columns_bottom_border", "gt_center"),
+              c(
+                "gt_col_heading",
+                "gt_columns_bottom_border",
+                paste0("gt_", remaining_alignment)
+              ),
               collapse = " "
             ),
             rowspan = 1, colspan = 1,
             style = remaining_style,
             htmltools::HTML(remaining_headings_labels[j])
           )
-
       }
 
       table_col_headings <-
@@ -1094,4 +1151,16 @@ build_row_styles <- function(styles_resolved_row,
   }
 
   row_styles
+}
+
+as_css_font_family_attr <- function(font_vec, value_only = FALSE) {
+
+  fonts_spaces <- grepl(" ", font_vec)
+  font_vec[fonts_spaces] <- paste_between(x = font_vec[fonts_spaces], x_2 = c("'", "'"))
+
+  value <- paste(font_vec, collapse = ", ")
+
+  if (value_only) return(value)
+
+  paste_between(value, x_2 = c("font-family: ", ";"))
 }

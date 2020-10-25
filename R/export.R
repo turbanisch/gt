@@ -41,7 +41,8 @@
 #'   function.
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
+#'
 #' # Use `gtcars` to create a gt table; add
 #' # a stubhead label to describe what is
 #' # in the stub
@@ -50,32 +51,37 @@
 #'   dplyr::select(model, year, hp, trq) %>%
 #'   dplyr::slice(1:5) %>%
 #'   gt(rowname_col = "model") %>%
-#'   tab_stubhead_label(label = "car")
+#'   tab_stubhead(label = "car")
 #'
 #' # Get an HTML file with inlined CSS
 #' # (which is necessary for including the
 #' # table as part of an HTML email)
 #' tab_1 %>%
-#'   gtsave("tab_1.html", inline_css = TRUE)
+#'   gtsave(
+#'     "tab_1.html", inline_css = TRUE,
+#'     path = tempdir()
+#'   )
 #'
 #' # By leaving out the `inline_css` option,
 #' # we get a more conventional HTML file
 #' # with embedded CSS styles
-#' tab_1 %>% gtsave("tab_1.html")
-#'
-#' # Save the HTML table as a PDF file; we
-#' # can optionally add a separate `path`
-#' tab_1 %>% gtsave("tab_1.pdf", path = "~")
+#' tab_1 %>%
+#'   gtsave("tab_1.html", path = tempdir())
 #'
 #' # Saving as PNG file results in a cropped
 #' # image of an HTML table; the amount of
 #' # whitespace can be set
-#' tab_1 %>% gtsave("tab_1.png", expand = 10)
+#' tab_1 %>%
+#'   gtsave(
+#'     "tab_1.png", expand = 10,
+#'     path = tempdir()
+#'   )
 #'
 #' # Any use of the `.tex`, `.ltx`, or `.rnw`
 #' # will result in the output of a LaTeX
 #' # document
-#' tab_1 %>% gtsave("tab_1.tex")
+#' tab_1 %>%
+#'   gtsave("tab_1.tex", path = tempdir())
 #' }
 #'
 #' @family Export Functions
@@ -245,11 +251,18 @@ gtsave_file_ext <- function(filename) {
 #' @noRd
 gtsave_filename <- function(path, filename) {
 
-  if (!is.null(path)) {
-    filename <- file.path(path, filename)
-  }
+  if (is.null(path)) path <- "."
 
-  filename %>% path_expand()
+  # The use of `fs::path_abs()` works around
+  # the saving code in `htmltools::save_html()`
+  # See htmltools Issue #165 for more details
+
+  fs::path_abs(
+    path = filename,
+    start = path
+  ) %>%
+    fs::path_expand() %>%
+    as.character()
 }
 
 #' Get the HTML content of a **gt** table
@@ -451,39 +464,36 @@ as_rtf <- function(data) {
 
   # Composition of RTF ------------------------------------------------------
 
-  # Create a RTF fragment for the start of the table
-  table_start <- rtf_head()
-
   # Create the heading component
-  heading_component <- create_heading_component(data = data, context = "rtf")
+  heading_component <- create_heading_component_rtf(data = data)
 
   # Create the columns component
-  columns_component <- create_columns_component_r(data = data)
+  columns_component <- create_columns_component_rtf(data = data)
 
   # Create the body component
-  body_component <- create_body_component_r(data = data)
+  body_component <- create_body_component_rtf(data = data)
 
   # Create the footnotes component
-  footnotes_component <- create_footnotes_component_r(data = data)
+  footnotes_component <- create_footnotes_component_rtf(data = data)
 
   # Create the source notes component
-  source_notes_component <- create_source_notes_component_r(data = data)
-
-  # Create a fragment for the ending tabular statement
-  table_end <- "}\n"
+  source_notes_component <- create_source_notes_component_rtf(data = data)
 
   # Compose the RTF table
   rtf_table <-
-    paste0(
-      table_start,
-      heading_component,
-      columns_component,
-      body_component,
-      footnotes_component,
-      source_notes_component,
-      table_end,
-      collapse = ""
-    )
+    rtf_file(
+      document = {
+        rtf_table(
+          rows = c(
+            heading_component,
+            columns_component,
+            body_component,
+            footnotes_component,
+            source_notes_component
+          )
+        )
+      }) %>%
+    as_rtf_string()
 
   if (isTRUE(getOption('knitr.in.progress'))) {
     rtf_table <- rtf_table %>% knitr::raw_output()
@@ -491,6 +501,7 @@ as_rtf <- function(data) {
 
   rtf_table
 }
+
 
 #' Extract a summary list from a **gt** object
 #'

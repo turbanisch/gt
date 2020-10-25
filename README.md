@@ -3,15 +3,17 @@
 
 # gt <img src="man/figures/logo.svg" align="right" height="250px" />
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+<!-- badges: start -->
+
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/gt)](https://cran.r-project.org/package=gt)
-[![Travis build
-status](https://travis-ci.com/rstudio/gt.svg?token=P7T9dzi5RLEq9j2Yepx5&branch=master)](https://travis-ci.com/rstudio/gt)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/rstudio/gt?branch=master&svg=true)](https://ci.appveyor.com/project/rstudio/gt)
+[![R build
+status](https://github.com/rstudio/gt/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/gt/actions?workflow=R-CMD-check)
 [![Coverage
 status](https://codecov.io/gh/rstudio/gt/branch/master/graph/badge.svg)](https://codecov.io/github/rstudio/gt?branch=master)
+<!-- badges: end -->
 
 With the **gt** package, anyone can make wonderful-looking tables using
 the **R** programming language. The **gt** philosophy: we can construct
@@ -87,20 +89,8 @@ There are six datasets included in **gt**: `countrypops`, `sza`,
 `gtcars`, `sp500`, `pizzaplace`, and `exibble`. All of them are useful
 for experimenting with **gt**’s functions.
 
-<p align="center">
-
-<img src="man/figures/gt_datasets.svg" width="800px">
-
-</p>
-
 Beyond this simple example, there are many functions available in **gt**
 for creating super-customized tables.
-
-<p align="center">
-
-<img src="man/figures/gt_function_reference.png" width="100%">
-
-</p>
 
 Want to try this out? Then, take the **gt** Test Drive on **RStudio
 Cloud**. It’s full of ready-to-run examples.
@@ -113,19 +103,22 @@ Cloud**. It’s full of ready-to-run examples.
 
 </p>
 
-You can install the development version of **gt** from **GitHub**:
+The **gt** package can be installed from **CRAN** with:
 
 ``` r
-remotes::install_github("rstudio/gt")
+install.packages("gt")
+```
+
+You can also choose to install the development version of **gt** from
+**GitHub**:
+
+``` r
+devtools::install_github("rstudio/gt")
 ```
 
 If you encounter a bug, have usage questions, or want to share ideas to
 make this package better, please feel free to file an
 [issue](https://github.com/rstudio/gt/issues).
-
------
-
-<img src="man/figures/gt_tables.png">
 
 -----
 
@@ -158,7 +151,7 @@ it may not suit your specific needs. Here is a listing of leading
 table-making **R** packages, with links to their respective project
 pages:
 
-**kable** ([GITHUB](https://github.com/yihui/knitr), [WEBSITE](https://yihui.org/knitr/)) —
+**knitr** ([GITHUB](https://github.com/yihui/knitr), [WEBSITE](https://yihui.org/knitr/)) —
 **kableExtra** ([GITHUB](https://github.com/haozhu233/kableExtra), [WEBSITE](https://haozhu233.github.io/kableExtra/)) —
 **formattable** ([GITHUB](https://github.com/renkun-ken/formattable), [WEBSITE](https://renkun-ken.github.io/formattable/)) —
 **DT** ([GITHUB](https://github.com/rstudio/DT), [WEBSITE](https://rstudio.github.io/DT/)) —
@@ -170,14 +163,14 @@ pages:
 **tangram** ([GITHUB](https://github.com/spgarbet/tangram)) —
 **ztable** ([GITHUB](https://github.com/cardiomoon/ztable)) —
 **condformat** ([GITHUB](https://github.com/zeehio/condformat)) —
-**stargazer** ([CRAN](https://cran.r-project.org/web/packages/stargazer/index.html)) —
-**xtable** ([CRAN](https://cran.r-project.org/web/packages/xtable/index.html))
+**stargazer** ([CRAN](https://CRAN.R-project.org/package=stargazer)) —
+**xtable** ([CRAN](https://CRAN.R-project.org/package=xtable))
 
 #### Code of Conduct
 
 Please note that this project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md).<br>By participating in this project you
-agree to abide by its terms.
+Conduct](https://contributor-covenant.org/version/1/0/0).<br>By
+participating in this project you agree to abide by its terms.
 
 #### License
 
