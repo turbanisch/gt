@@ -409,11 +409,14 @@ as_latex <- function(data) {
 
   # Composition of LaTeX ----------------------------------------------------
 
-  # Create a LaTeX fragment for the start of the table
-  table_start <- create_table_start_l(data = data)
+  # Create a LaTeX fragment for the start of the threeparttable environment
+  tpt_start <- create_tpt_start_l()
 
   # Create the heading component
   heading_component <- create_heading_component_l(data = data)
+
+  # Create a LaTeX fragment for the start of the table
+  table_start <- create_table_start_l(data = data)
 
   # Create the columns component
   columns_component <- create_columns_component_l(data = data)
@@ -430,6 +433,9 @@ as_latex <- function(data) {
   # Create a LaTeX fragment for the ending tabular statement
   table_end <- create_table_end_l()
 
+  # Create a LaTeX fragment for closing the threeparttable environment
+  tpt_end <- create_tpt_end_l()
+
   # If the `rmarkdown` package is available, use the
   # `latex_dependency()` function to load latex packages
   # without requiring the user to do so
@@ -441,13 +447,15 @@ as_latex <- function(data) {
 
   # Compose the LaTeX table
   paste0(
-    table_start,
+    tpt_start,
     heading_component,
+    table_start,
     columns_component,
     body_component,
     table_end,
     footnotes_component,
     source_notes_component,
+    tpt_end,
     collapse = ""
   ) %>%
     knitr::asis_output(meta = latex_packages)

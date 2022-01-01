@@ -5,13 +5,12 @@ latex_group <- function(...) {
 
 # Create a vector of LaTeX packages to use as table dependencies
 latex_packages <- function() {
-  c("amsmath", "booktabs", "caption", "longtable")
+  c("amsmath", "booktabs", "caption", "threeparttablex")
 }
 
 # Transform a footnote mark to a LaTeX representation as a superscript
 footnote_mark_to_latex <- function(mark) {
-
-  paste0("\\textsuperscript{", mark, "}")
+  paste0("\\tnote{", mark, "}")
 }
 
 #' @noRd
@@ -52,6 +51,15 @@ latex_group_row <- function(group_name,
     collapse = "")
 }
 
+#'
+create_tpt_start_l <- function() {
+  paste0(
+    "\\begin{table}\n",
+    "\\centering\n",
+    "\\begin{threeparttable}\n"
+  )
+}
+
 #' @noRd
 create_table_start_l <- function(data) {
 
@@ -66,8 +74,7 @@ create_table_start_l <- function(data) {
   }
 
   paste0(
-    "\\captionsetup[table]{labelformat=empty,skip=1pt}\n",
-    "\\begin{longtable}{",
+    "\\begin{tabular}{",
     col_alignment %>% substr(1, 1) %>% paste(collapse = ""),
     "}\n",
     collapse = ""
@@ -125,7 +132,7 @@ create_heading_component_l <- function(data) {
   }
 
   title_row <-
-    latex_group("\\large ", heading$title, footnote_title_marks)
+    paste0(heading$title, footnote_title_marks)
 
   if (subtitle_defined) {
 
@@ -139,8 +146,12 @@ create_heading_component_l <- function(data) {
     subtitle_row <- ""
   }
 
-  paste0(title_row, subtitle_row) %>%
-    paste_between(x_2 = c("\\caption*{\n", "\n} \\\\ \n"))
+  paste0(
+    "\\captionsetup{position=top} \n",
+    "\\caption{\n",
+    paste0(title_row, subtitle_row),
+    "\n} \n"
+  )
 }
 
 #' Create the columns component of a table
@@ -317,8 +328,16 @@ create_table_end_l <- function() {
 
   paste0(
     "\\bottomrule\n",
-    "\\end{longtable}\n",
+    "\\end{tabular}\n",
     collapse = "")
+}
+
+#' @noRd
+create_tpt_end_l <- function() {
+  paste0(
+    "\\end{threeparttable}\n",
+    "\\end{table}\n"
+  )
 }
 
 #' @noRd
@@ -352,14 +371,13 @@ create_footnotes_component_l <- function(data) {
 
   # Create the footnotes block
   paste0(
-    "\\vspace{-5mm}\n",
-    "\\begin{minipage}{\\linewidth}\n",
+    "\\begin{tablenotes}\\footnotesize\n",
     paste0(
-      footnote_mark_to_latex(footnotes_tbl[["fs_id"]]),
+      paste0("\\item [", footnotes_tbl[["fs_id"]], "] "),
       footnotes_tbl[["footnotes"]] %>%
         unescape_html() %>%
-        markdown_to_latex(), " \\\\ \n", collapse = ""),
-    "\\end{minipage}\n",
+        markdown_to_latex(), " \n", collapse = ""),
+    "\\end{tablenotes}\n",
     collapse = ""
   )
 }
@@ -375,15 +393,15 @@ create_source_note_component_l <- function(data) {
     return("")
   }
 
-  source_note <- source_note[[1]]
+  source_note <- source_note
 
   # Create the source notes block
   source_note_component <-
     paste0(
-      "\\begin{minipage}{\\linewidth}\n",
+      "\\footnotesize\n",
       paste0(
-        source_note %>% as.character(), "\\\\ \n", collapse = ""),
-      "\\end{minipage}\n", collapse = "")
+        source_note %>% as.character(), "\\\\ \n", collapse = "")
+    )
 
   source_note_component
 }
