@@ -147,7 +147,6 @@ create_heading_component_l <- function(data) {
   }
 
   paste0(
-    "\\captionsetup{position=top} \n",
     "\\caption{\n",
     paste0(title_row, subtitle_row),
     "\n} \n"
@@ -424,7 +423,7 @@ create_group_rows_l <- function(groups_rows_df,
             group_name = groups_rows_df[
               groups_rows_df$row_start == x, "group_label"][[1]],
             top_border = x != 1,
-            bottom_border = x != n_rows
+            bottom_border = FALSE
           )
         }
       )
